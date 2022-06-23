@@ -1,0 +1,98 @@
+.animate__animated.animate__bounce {
+  --animate-duration: 2s;
+}
+
+:root {
+  --animate-duration: 10000ms;
+  --animate-delay: 10s;
+}
+
+.cardope {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  opacity: 0.1;
+}
+
+
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.bg-music{
+  position: absolute;
+  top: 64%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.btn{
+  background-color: transparent;
+  color: #fff;
+  font-size: 78px;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  opacity: .3;
+  transition: all linear .2s;
+}
+
+.volume-off{
+  display: none;
+}
+
+.content {
+  position: relative;
+}
+
+.btnjugar {
+	position: relative;
+	text-align: center;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
+
+/* equal card height */
+.row-equal > div[class*='col-'] {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+.row-equal .card {
+   width: 100%;
+}
+
+/* ensure equal card height inside carousel */
+.carousel-inner>.row-equal.active, 
+.carousel-inner>.row-equal.next, 
+.carousel-inner>.row-equal.prev {
+    display: flex;
+}
+
+/* prevent flicker during transition */
+.carousel-inner>.row-equal.active.left, 
+.carousel-inner>.row-equal.active.right {
+    opacity: 0.5;
+    display: flex;
+}
+
+
+/* control image height */
+.card-img-top-250 {
+    max-height: 250px;
+    overflow:hidden;
+}

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="css/styles.css">
+
+
+	  <style class="INLINE_PEN_STYLESHEET_ID">
+		    /*Hoja de estilos*/
+		#entorno {
+			/*
+			display: block;
+			margin: 0 auto;*/
+		}
+
+		#fondo {
+			opacity: 0.3;
+		}
+	  </style>
+	<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-7f4d47902dc785f30dedcac9c996b9f31d4dfcc33567cc48f0431bc918c2bf05.js"></script>
+	<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-bb9a2ba1f03f6147732cb3cd52ac86c6b24524aa87a05ed0b726f11e46d7e277.js"></script>
+	<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js"></script>
+
+
+	<title>MathPluzz</title>
+</head>
+<body style="overflow: hidden;">
+
+	
+	<audio id="bgmusic" src="music/musica.mp3" autoplay></audio>
+	<video playsinline autoplay muted loop id="bgvid">
+  		
+  		<source src="video/back.mp4" type="video/mp4">
+	</video>
+
+	<div class="content">
+		<div class="container">
+			<div class="row " style="opacity: 0.9;">
+				<div class="card mt-3 bg-info ">
+				  <div class="card-header" style="text-align:center;">
+				   <h2>ROMPECABEZAS</h2>
+				  </div>
+				</div>				
+			</div>
+			<hr class="my-2">							
+									 
+			 	<div class="row" style="opacity: 0.9;">
+			 		<div class="col-sm-9">
+			 			<div class="card border-info" style="height: 29rem;">
+			 				<div class="card-body">
+
+
+
+			 					<!--<img src="img/img-a.png" width="95%" height="85%">-->
+								<svg width="800" height="480" id="entorno">
+
+
+								</svg>
+								<audio id="win" src="music/musica.mp3" allow="autoplay">
+						
+								</audio>
+				
+			 				</div>
+			 			</div>
+			 		</div>
+			 		<div class="col-sm-3">
+			 			<div class="card border-info" style="height: 29rem;">
+			 				<div class="card-header">
+								<div class="row">
+									<div class="col"><a href=""><img src="img/reset.png" onclick="javascript:window.location.reload();"></a></div>
+									<div class="col" style="text-align:right;">
+										<a href="#"><img src="img/info_menu.png" alt="" onclick="
+										alert('\nSe presenta un problema matemático, el cual puede ser una suma, resta, multiplicación o división, y tendrás que armar el rompecabezas para poder encontrar el resultado del problema correspondiente.');
+										"></a></div>
+
+								</div>
+
+								</div>
+			 				<div class="card-body">
+
+			 					<div class="card-title">Resuelve el juego para llegar al resultado de la operación.</div>
+								<br>
+			 					<div id="oper"></div>
+
+			 				</div>									 				
+			 			</div>
+
+
+			 		</div>						 											
+			 	</div>
+		
+			<hr class="my-2">
+
+
+		</div>
+
+
+		<footer>
+			<div class="content container">
+				
+				<div class="row justify-content-between ">
+					<div class="col-md ">
+					  
+					  	<a href="menu_eleccion.html"><img src="img/atras.png" alt=""></a>
+					</div>
+					<div class="col-md " style="text-align:right;">
+						<a id="musik" href="#"><img id="imagenC" src="img/audio_off.png" alt=""></a>							
+					</div>					
+				</div>
+			</div>
+	
+		</footer>
+
+
+
+
+
+	</div>
+
+
+</body>
+
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<script type="text/javascript" src="js/rompecabezas.js"></script>
+
+<script>
+	
+
+</script>
+
+<script type="text/javascript">
+	
+	
+	const button = document.getElementById("musik");
+	const icon = document.getElementById("imagenC");
+	const audio = document.getElementById("bgmusic");
+
+	var dom=document.getElementById("entorno");
+	var html='';
+
+	button.addEventListener("click", () => {
+	if (audio.paused) {
+		audio.volume = 0.2;
+		audio.play();
+		icon.src = "img/audio_on.png"
+		
+	} else {
+		audio.pause();
+		
+		icon.src = "img/audio_off.png"
+	}
+	//button.classList.add("fade");
+	});
+
+
+	
+
+	do{
+	var carp=Math.round(Math.random()*5)+1;
+	console.log('->' +carp);
+	}while(!(carp>=1 && carp<=5));
+
+	html+=
+	'<g id="fondo"><image xlink:href="img/j_romp/r'+carp+'/FULL.png" width="400" height="400" x="350" y="10"></g>'+
+	'<g class="padre" id="0"><image xlink:href="img/j_romp/r'+carp+'/1.png" class="movil"></g>'+						
+	'<g class="padre" id="1"><image xlink:href="img/j_romp/r'+carp+'/2.png" class="movil"></g>'+
+	'<g class="padre" id="2"><image xlink:href="img/j_romp/r'+carp+'/3.png" class="movil"></g>'+
+	'<g class="padre" id="3"><image xlink:href="img/j_romp/r'+carp+'/4.png" class="movil"></g>'+
+	'<g class="padre" id="4"><image xlink:href="img/j_romp/r'+carp+'/5.png" class="movil"></g>'+
+	'<g class="padre" id="5"><image xlink:href="img/j_romp/r'+carp+'/6.png" class="movil"></g>'+
+	'<g class="padre" id="6"><image xlink:href="img/j_romp/r'+carp+'/7.png" class="movil"></g>'+
+	'<g class="padre" id="7"><image xlink:href="img/j_romp/r'+carp+'/8.png" class="movil"></g>'+
+	'<g class="padre" id="8"><image xlink:href="img/j_romp/r'+carp+'/9.png" class="movil"></g>';
+
+	dom.innerHTML=html;
+
+
+	var oper=document.getElementById("oper");
+	var html2='';
+
+	switch(carp){
+		case 1: html2='<h5> 5 + 2 - 1 + 6 - 2  = ?</h5>';
+		break;
+		case 2: html2='<h5> 9 + 5 + 2 + 5 + 3 - 1 = ?</h5>';
+		break;
+		case 3: html2='<h5> 3 + 3 + 3 = ?</h5>';
+		break;
+		case 4: html2='<h5> 3 * 2 * 2 = ?</h5>';
+		break;
+		case 5: html2='<h5> 10 + 5 + 2 + 1 + 1 = ?</h5>';
+		break;
+	}
+	oper.innerHTML=html2;
+
+	var piezas = document.getElementsByClassName('movil');
+
+	var tamWidh = [134,192,134,163,134,163,134,192,134];
+	var tamHeight = [163,134,163,134,192,134,163,134,163];
+
+
+
+	for(var i=0;i<piezas.length;i++){
+		piezas[i].setAttribute("width", tamWidh[i]);
+		piezas[i].setAttribute("height",tamHeight[i]);
+		piezas[i].setAttribute("x", Math.floor((Math.random() * 10) + 1));
+		piezas[i].setAttribute("y", Math.floor((Math.random() * 250) + 1));
+		piezas[i].setAttribute("onmousedown","seleccionarElemento(evt)");
+	}
+
+	var elementSelect = 0;  
+	var currentX = 0;
+	var currentY = 0;
+	var currentPosX = 0;
+	var currentPosY = 0;
+
+	function seleccionarElemento(evt) {
+		elementSelect = reordenar(evt);
+		currentX = evt.clientX;        
+		currentY = evt.clientY;
+		currentPosx = parseFloat(elementSelect.getAttribute("x"));     
+		currentPosy = parseFloat(elementSelect.getAttribute("y"));
+		elementSelect.setAttribute("onmousemove","moverElemento(evt)");
+	}
+
+	function moverElemento(evt){
+		var dx = evt.clientX - currentX;
+		var dy = evt.clientY - currentY;
+		currentPosx = currentPosx + dx;
+		currentPosy = currentPosy + dy;
+		elementSelect.setAttribute("x",currentPosx);
+		elementSelect.setAttribute("y",currentPosy);
+		currentX = evt.clientX;        
+		currentY = evt.clientY;
+		elementSelect.setAttribute("onmouseout","deseleccionarElemento(evt)");
+		elementSelect.setAttribute("onmouseup","deseleccionarElemento(evt)");
+		iman();
+	}
+
+	function deseleccionarElemento(evt){
+		testing();
+		if(elementSelect != 0){			
+			elementSelect.removeAttribute("onmousemove");
+			elementSelect.removeAttribute("onmouseout");
+			elementSelect.removeAttribute("onmouseup");
+			elementSelect = 0;
+		}
+	}
+
+	var entorno = document.getElementById('entorno');
+
+	function reordenar(evt){
+		var padre = evt.target.parentNode;
+		var clone = padre.cloneNode(true);
+		var id = padre.getAttribute("id");
+		entorno.removeChild(document.getElementById(id));
+		entorno.appendChild(clone);
+		return entorno.lastChild.firstChild;
+	}
+
+	//var origX = [200,304,466,200,333,437,200,304,466];   
+	//var origY = [0,0,0,133,104,133,237,266,237];
+
+	var origX = [350,454,616,350,483,587,350,454,616];   
+	var origY = [10,10,10,143,114,143,247,276,247];
+
+
+
+	function iman(){
+		for(var i=0;i<piezas.length;i++){
+			if (Math.abs(currentPosx-origX[i])<15 && Math.abs(currentPosy-origY[i])<15) {
+				elementSelect.setAttribute("x",origX[i]);
+				elementSelect.setAttribute("y",origY[i]);
+			}
+		}
+	}
+				
+	var win = document.getElementById("win");
+
+	function testing() {
+		var bien_ubicada = 0;
+		var padres = document.getElementsByClassName('padre');
+		for(var i=0;i<piezas.length;i++){
+			var posx = parseFloat(padres[i].firstChild.getAttribute("x"));    
+			var posy = parseFloat(padres[i].firstChild.getAttribute("y"));
+			ide = padres[i].getAttribute("id");
+			if(origX[ide] == posx && origY[ide] == posy){
+				bien_ubicada = bien_ubicada + 1;
+			}
+		}
+		if(bien_ubicada == 9){
+			if(confirm("\n¡Has Ganado! \n\n¿Quieres Intentarlo de Nuevo?")){
+				window.location.reload();
+			}else{
+				window.location.href = 'menu_eleccion.html';
+			}
+		}
+	}
+
+     function load() {
+        alert("\nPara iniciar el juego oprima ACEPTAR");
+     }
+     window.onload = load;
+</script>
+
+</html>

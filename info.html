@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="css/styles.css">
+
+	<title>MathPluzz</title>
+</head>
+
+<body>
+	<audio id="bgmusic" src="music/musica.mp3" autoplay></audio>
+	<video playsinline autoplay muted loop id="bgvid">
+
+		<source src="video/back.mp4" type="video/mp4">
+	</video>
+
+	<div class="content">
+		<div class="container">
+
+			<hr class="my-4">
+
+
+			<div class="container">
+				<div class="row">
+
+
+
+					<div class="col-sm-9">
+						<div class="card" style="height: 28rem;">
+							<div class="card-header" style="text-align:center;">
+								<h4>Información</h4>
+
+							</div>
+							<div class="card-body">
+								<p class="text-center"><b>MathPluzz: Aprende Matemáticas. </b></p>
+								<p class="text-justify">
+									El desarrollo de esta aplicación web, se llevó a cabo a petición de la materia de
+									Interacción Humano Computadora, dirigida por la profesora M.C. Guadalupe Toledo
+									Toledo, profesora investigadora de la Universidad del Istmo Campus Tehuantepec.
+									Los integrantes del equipo de trabajo son: </p>
+								<ul>
+									<li>Acevedo Acevedo Edwir.</li>
+									<li>Cabrera Guerra Carlos Eugenio.</li>
+									<li>Fuentes Cortes Williams.</li>
+									<li>Gallegos Pérez Erick Oswaldo.</li>
+								</ul>
+								<p class="text-justify">Alumnos de la carrera de Ingeniería en Computación de la Universidad del Istmo Campus
+								Tehuantepec. <br>
+								El desarrollo de esta aplicación web, va enfocado para los niños de nivel primaria entre
+								7 y 10 años de edad. Para que puedan contar con una herramienta, que los ayude a
+								practicar en el área de las matemáticas básicas, mediante juegos de puzzles que
+								mostrarán operaciones aritméticas básicas (suma, resta, multiplicación y división).
+								</p>
+
+
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3" style="text-align:center; width: 100rem;">
+						<br><br><br><br>
+						<img src="img/big_info.png" alt="">
+
+					</div>
+
+
+				</div>
+
+			</div>
+
+			<hr class="my-4">
+
+		</div>
+
+
+		<footer>
+			<div class="content container">
+
+				<div class="row justify-content-between ">
+					<div class="col-md ">
+
+						<a href="index.html"><img src="img/atras.png" alt=""></a>
+					</div>
+					<div class="col-md " style="text-align:right;">
+						<a id="musik" href="#"><img id="imagenC" src="img/audio_off.png" alt=""></a>
+					</div>
+				</div>
+			</div>
+
+		</footer>
+
+	</div>
+
+
+
+
+
+</body>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+
+<script>
+
+	const button = document.getElementById("musik");
+	const icon = document.getElementById("imagenC");
+	const audio = document.getElementById("bgmusic");
+
+
+
+	button.addEventListener("click", () => {
+		if (audio.paused) {
+			audio.volume = 0.2;
+			audio.play();
+			icon.src = "img/audio_on.png"
+
+		} else {
+			audio.pause();
+
+			icon.src = "img/audio_off.png"
+		}
+		//button.classList.add("fade");
+	});
+</script>
+
+</html>
